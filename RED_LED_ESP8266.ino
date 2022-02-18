@@ -120,8 +120,8 @@ WiFiClient client;
   } else {
     client.println("<p> État de la led : Off<br> </p>");
   }
-  client.println("<button>Allumer<a href='/LED=ON''></a></button>");
-  client.println("<button>Éteindre<a href='/LED=OFF''></a></button>");
+  client.println("<button><a href='/LED=ON'>Allumer</a></button>");
+  client.println("<button><a href='/LED=OFF'>Éteindre</a></button>");
   client.println("<!-- <a href='/LED=ON''><button>Allumer </button></a>");
   client.println("<a href='/LED=OFF''><button>Eteindre </button></a><br /> -->");
   client.println("</body>");
