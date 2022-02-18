@@ -87,7 +87,7 @@ WiFiClient client;
   client.println("<meta http-equiv='X-UA-Compatible' content='IE=edge'>");
   client.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
   client.println("<style>");
-  client.println("* {");
+  client.println("body {");
   client.println("background-color: rgb(255,207,241);");
   client.println("}");
   client.println("p{");
@@ -111,6 +111,10 @@ WiFiClient client;
   client.println("color: rgb(214, 81, 176);");
   client.println("background-color: rgb(251, 255, 0);");
   client.println("}");
+  client.println("a {");
+  client.println("color: inherit;");
+  client.println("text-decoration: none;");
+  client.println("}");
   client.println("</style>");
   client.println("<title>Document</title>");
   client.println("</head>");
@@ -122,10 +126,9 @@ WiFiClient client;
   }
   client.println("<button><a href='/LED=ON'>Allumer</a></button>");
   client.println("<button><a href='/LED=OFF'>Éteindre</a></button>");
-  client.println("<!-- <a href='/LED=ON''><button>Allumer </button></a>");
-  client.println("<a href='/LED=OFF''><button>Eteindre </button></a><br /> -->");
   client.println("</body>");
   client.println("</html>");
+
  
  
   delay(1);
