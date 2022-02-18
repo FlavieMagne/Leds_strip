@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {
+        body {
             background-color: rgb(255,207,241);
         }
         p{
@@ -29,14 +29,18 @@
                cursor: pointer;
                color: rgb(214, 81, 176);
                background-color: rgb(251, 255, 0);
-          }
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
     </style>
     <title>Document</title>
 </head>
 <body>
     <p> État de la led : Off<br> </p>
-    <button>Allumer<a href="/LED=ON""></a></button>
-    <button>Éteindre<a href="/LED=OFF""></a></button>
+    <button><a href="/LED=ON">Allumer</a></button>
+    <button><a href="/LED=OFF">Éteindre</a></button>
     <!-- <a href="/LED=ON""><button>Allumer </button></a>
     <a href="/LED=OFF""><button>Eteindre </button></a><br /> -->
 </body>
