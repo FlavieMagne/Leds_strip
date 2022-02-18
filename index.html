@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            background-color: rgb(255,207,241);
+        }
+        p{
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: bold;
+            color: rgba(182, 11, 11, 0.993);
+            font-size : 36px;
+
+        }
+        button{
+            background-color: rgb(60, 145, 160);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 30%;
+            border: 3px solid rgb(0, 0, 0);
+            height: 70px;
+            width: 120px;
+        }
+        button:hover {
+               cursor: pointer;
+               color: rgb(214, 81, 176);
+               background-color: rgb(251, 255, 0);
+          }
+    </style>
     <title>Document</title>
 </head>
 <body>
-    
+    <p> État de la led : Off<br> </p>
+    <button>Allumer<a href="/LED=ON""></a></button>
+    <button>Éteindre<a href="/LED=OFF""></a></button>
+    <!-- <a href="/LED=ON""><button>Allumer </button></a>
+    <a href="/LED=OFF""><button>Eteindre </button></a><br /> -->
 </body>
 </html>
