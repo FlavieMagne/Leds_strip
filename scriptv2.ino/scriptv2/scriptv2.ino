@@ -9,7 +9,7 @@
 
 #define PIN 2
 #define NUMPIXELS 30
-#define DELAYVAL 500
+#define DELAYVAL 100
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -28,6 +28,10 @@ int pos1 = 0;
 int pos2 = 0;
 int pos3 = 0;
 int pos4 = 0;
+
+int spos1 = 0;
+int spos2 = 0;
+String stateString = "0";
 
 // Variable to store the HTTP req  uest
 String header;
@@ -91,6 +95,7 @@ void setup() {
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.println("/");
+  initt();
 }
 
 void display_color(int r, int g, int b) {
@@ -101,6 +106,30 @@ void display_color(int r, int g, int b) {
     pixels.setPixelColor(i, pixels.Color(r, g, b));
     pixels.show();
     delay(DELAYVAL);
+  }
+}
+
+void off(){
+  pixels.clear();
+  for(int i=0; i<NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
+    pixels.show();
+    delay(DELAYVAL);
+  }
+}
+
+void initt(){
+  for(int i=0; i<5; i++){
+    for(int j=0; j<38; j++){
+      pixels.setPixelColor(j, 0, 0, 255);
+      delay(10);
+      pixels.show();
+    }
+    for(int k=37; k>=0; k--){
+      pixels.setPixelColor(k, 0, 0, 0);
+      delay(10);
+      pixels.show();
+    }
   }
 }
 
@@ -186,9 +215,8 @@ void loop(){
             client.println("</head>");
             client.println("<body>");
             client.println("<p> Leds Strip </p>");
-            client.println("<button><a href='/LED=ON'>ON</a></button><br>");
             client.println("<input id='color1' type='color' value='#FFFFFF' onChange='printColor(event)'><br>");
-            client.println("<button><a href='/LED=OFF'>OFF</a></button>");
+            client.println("<button><a href='/?s0'>OFF</a></button>");
             client.println("<script> //JavaScript");
             client.println("function printColor(ev) {");
             client.println("const color = ev.target.value");
@@ -223,6 +251,14 @@ void loop(){
                greenString.toInt(),
                blueString.toInt()
              );
+            }
+            if(header.indexOf("GET /?s")>=0){
+              spos1 = header.indexOf('s');
+              spos2 = header.indexOf('&');
+              stateString = header.substring(spos1+1, spos2);
+              if(stateString.toInt()==0){
+                off();
+              }
             }
             // Break out of the while loop
             break;
