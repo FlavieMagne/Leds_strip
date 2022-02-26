@@ -14,6 +14,6 @@ for line in html_lines:
         line=line+"\n"
         cpp_lines.append(line)
 
-outfile = open('./script.ino', 'w')
+outfile = open('./buffer/script.ino', 'w')
 outfile.writelines(cpp_lines)
 outfile.close()
