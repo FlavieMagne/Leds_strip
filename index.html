@@ -44,30 +44,12 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <form method="post">
-        <input type="color" onChange="printColor(event)">
-        <input type="submit" value="Ok">
-   </form> -->
     <p> État de la led : Off<br> </p>
     <button><a href="/LED=OFF">OFF</a></button>
-    <br>
-    <!-- <button><a href="/LED=ON_white">WHITE</a></button>
-    <button><a href="/LED=ON_red">RED</a></button>
-    <button><a href="/LED=ON_green">GREEN</a></button>
-    <button><a href="/LED=ON_blue">BLUE</a></button> -->
-    <!-- <button type="button" onclick="getValue();">Récupérer la valeur</button> -->
-    
+    <br>  
     
     <input type="color" onChange="printColor(event)"><br>
-    <!-- <button type="button" onclick="getValue();">Récupérer la valeur</button> -->
     <script> //JavaScript
-        // function printColor(ev) {
-        //     const color = ev.target.value
-        //     const r = parseInt(color.substr(1,2), 16)
-        //     const g = parseInt(color.substr(3,2), 16)
-        //     const b = parseInt(color.substr(5,2), 16)
-        //     console.log(`red: ${r}, green: ${g}, blue: ${b}`)
-        //     }
         function printColor(ev) {
             const color = ev.target.value
             const r = parseInt(color.substr(1,2), 16)
@@ -77,6 +59,6 @@
             }
     </script>
     <br>
-    <!-- <button><a href="/OK">OK</a></button> -->
+   
 </body>
 </html>
